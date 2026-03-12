@@ -12,7 +12,7 @@ import os
 # Existuji nejake postupy ci standardy pro programovani obecne? Pokud je obecne prijmano, ze lze pouzit kod 
 # generovany AI, jak takovy kod zpracovat aby byl dobre citelny a srozumitelny? V TIA Portal jsem nijak 
 # zvlast aktivne AI nevyuzival, tudiz je to pro me neprobadane uzemi.
-
+# Pokusil jsem se skryt zkratky.md pres .gitignore, ale jsou tam. Co jsem udelal spatne?
 
 # --- 1. NACETNI DAT ---
 # Cesta k souboru musi odpovidat slozce.
