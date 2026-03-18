@@ -124,3 +124,4 @@ with open(output_file, 'a', encoding='utf-8') as f:
 file_path = os.path.abspath(output_file)
 print(f"Hotovo! Display aktivni: {file_path}")
 webbrowser.open(f"file://{file_path}")
+input("Graf vygenerován. Prohlédni si ho v prohlížeči a pak zde stiskni Enter pro ukončení...")
