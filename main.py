@@ -1,0 +1,1 @@
+print("Ahoj z Dockeru v MX Linuxu!")
