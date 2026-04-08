@@ -1,0 +1,46 @@
+# -----------------------------------------------------------------------------
+# Docker Compose: Orchestrace Robot ETL Pipeline
+# -----------------------------------------------------------------------------
+# Propojuje MariaDB a Python aplikaci do jednoho celku.
+
+version: "3.8"
+name: robot-position-etl
+
+services:
+  # Sluzba 1: MariaDB Databaze
+  db_server:
+    build: ./db_server
+    container_name: mariadb_robot_db
+    environment:
+      MARIADB_USER: myuser
+      MARIADB_PASSWORD: mypassword
+      MARIADB_DATABASE: robot_db
+      MARIADB_RANDOM_ROOT_PASSWORD: "1"
+    networks:
+      - etl_network
+
+  # Sluzba 2: Python ETL Aplikace
+  python_app:
+    build: ./python_app
+    container_name: python_etl_worker
+    # Klicove pro MX Linux: Vypnuti AppArmoru kvuli opravnenim
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      DB_HOST: db_server
+      DB_DATABASE: robot_db
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+      DATA_PATH: "/app/data/R1.csv"
+    depends_on:
+      - db_server
+    # Mapovani datove slozky pro persistenci a snadny pristup k CSV
+    volumes:
+      - ./data:/app/data
+    networks:
+      - etl_network
+
+networks:
+  # Definice bridge site pro izolovanou komunikaci mezi kontejnery
+  etl_network:
+    driver: bridge

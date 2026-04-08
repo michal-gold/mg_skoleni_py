@@ -1,0 +1,3 @@
+sqlmodel
+pymysql
+cryptography
