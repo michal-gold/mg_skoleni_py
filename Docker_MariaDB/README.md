@@ -5,8 +5,8 @@
 2. **Sluzba db_server**: MariaDB 11 (verze 11 doporucena kvuli stabilite) s vlastnim Dockerfilem, optimalizovana pro ukladani trajektorii.
 3. **Sluzba python_app**: 
    - **Extract**: Cteni dat z `R1.csv` (snaha o logovani, z duvodu zapasu s dockerem pres prikazovy radek, most: docker - linux vs virtualka s windows s vs code).
-   - **Transform**: mapovani jen urcitych dat (Time, X, Y, Z) pomoci SQLModel - chtel jsem vedet, jak prenaset jen vzbrana data - SQLModel mi byl doporucen jako elegantni reseni.
-   - **Load**: vlozeni dat do databaye po nacteni celeho csv souboru.
+   - **Transform**: mapovani jen urcitych dat (Time, X, Y, Z) pomoci SQLModel - chtel jsem vedet, jak prenaset jen vybrana data - SQLModel mi byl doporucen jako elegantni reseni.
+   - **Load**: vlozeni dat do databaze po nacteni celeho csv souboru.
 
 
 ## Spusteni (Standardni cesta)
